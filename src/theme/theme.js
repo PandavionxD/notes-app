@@ -8,6 +8,12 @@ export const theme = createTheme({
     secondary: {
       main: '#F5535C',
     },
+    background:{
+      main:'#000'
+    },
+    white:{
+      main:'#fff'
+    }
   },
   typography:{
     fontFamily:'raleway'

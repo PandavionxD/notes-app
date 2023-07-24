@@ -11,16 +11,26 @@ import {
 import { NotasPage } from "./pages/NotasPage";
 import { EditNotasPage } from "./pages/EditNotasPage";
 import { AddNotasPage } from "./pages/AddNotasPage";
+import { Box, Container } from "@mui/material";
+import { NotaProvider } from "./context/NotaProvider";
+import './estilosGlobal.css'
+
 
 export const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<NotasPage />} />
-        <Route path="/edit/:id" element={<EditNotasPage />} />
-        <Route path="/add" element={<AddNotasPage />} />
-        <Route path="/*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
+    <NotaProvider>
+      <Box width="100%" minHeight="100vh" bgcolor="background.main" mt={0}>
+        <Container maxWidth="sm">
+          <Router>
+            <Routes>
+              <Route path="/" element={<NotasPage />} />
+              <Route path="/edit/:id" element={<EditNotasPage />} />
+              <Route path="/add" element={<AddNotasPage />} />
+              <Route path="/*" element={<Navigate to="/" />} />
+            </Routes>
+          </Router>
+        </Container>
+      </Box>
+    </NotaProvider>
   );
 };

@@ -1,0 +1,19 @@
+.ref{
+    text-decoration:none
+}
+input:focus{
+    color: white;
+}
+input{
+    color: white !important;
+}
+.tarea{
+    background-color: transparent;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid white;
+    color: white;
+    font-family: 'raleway';
+    font-size: 14px;
+    
+}
