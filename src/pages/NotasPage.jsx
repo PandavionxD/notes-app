@@ -5,12 +5,11 @@ import { NotaList } from "../components/NotaList";
 import { NotaSearch } from "../components/NotaSearch";
 
 export const NotasPage = () => {
-  const { notas } = useContext(NotaContext);
-  console.log(notas);
+  const { notes } = useContext(NotaContext);
   return(
     <>
     <Title/>
-    <NotaList notas={notas}  />
+    <NotaList notas={notes}  />
     <NotaSearch/>
     </>
   )

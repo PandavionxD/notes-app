@@ -3,6 +3,7 @@ import { IconButton } from "@mui/material";
 import { purple } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 export const NotaSearch = () => {
+  
   return (
     <Link to='/add' >
     <IconButton

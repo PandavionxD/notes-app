@@ -25,7 +25,7 @@ export const NotaItem = ({ id, title='', description, date }) => {
             listStyle:'none'
             
           }} >
-            {title.length>40 ? title.substring(0,32)+' ...' : title  }
+            {title.length>15 ? title.substring(0,20)+' ...' : title  }
           </Typography>
 
           <Typography variant="overline" sx={{
