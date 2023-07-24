@@ -11,9 +11,23 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { useContext, useState } from "react";
 import { NotaContext } from "../context/NotaContext";
 import { useGetDate } from "../hooks/useGetDate";
+import { useSnackbar } from "notistack";
+
 
 export const EditNotasPage = () => {
   const { notas, setnotas } = useContext(NotaContext);
+  const {enqueueSnackbar} = useSnackbar()
+
+  const OpenSnack=(valor,variant)=>{
+    enqueueSnackbar(`${valor} `, {
+      variant: variant,
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
+      },
+    });
+  }
+
   const { id } = useParams();
   const nota = notas.find((nota) => {
     return nota.id == id;
@@ -50,7 +64,8 @@ export const EditNotasPage = () => {
         return item;
       });
       setnotas(newNotes);
-      navigate("/");
+      navigate("/")
+      OpenSnack('Nota Editada','success')
     }
   };
 
@@ -58,6 +73,7 @@ export const EditNotasPage = () => {
     const newNotes= notas.filter(item=>item.id !==id)
     setnotas(newNotes)
     navigate('/')
+    OpenSnack('Nota Eliminada','error')
   }
 
   return (

@@ -14,10 +14,12 @@ import { AddNotasPage } from "./pages/AddNotasPage";
 import { Box, Container } from "@mui/material";
 import { NotaProvider } from "./context/NotaProvider";
 import './estilosGlobal.css'
+import { SnackbarProvider } from "notistack";
 
 
 export const App = () => {
   return (
+    <SnackbarProvider autoHideDuration={3000} maxSnack={3}  >
     <NotaProvider>
       <Box width="100%" minHeight="100vh" bgcolor="background.main" mt={0}>
         <Container maxWidth="sm">
@@ -32,5 +34,6 @@ export const App = () => {
         </Container>
       </Box>
     </NotaProvider>
+    </SnackbarProvider>
   );
 };

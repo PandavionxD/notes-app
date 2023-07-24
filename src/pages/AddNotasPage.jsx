@@ -12,11 +12,24 @@ import { useContext, useState } from "react";
 import { useGetDate } from "../hooks/useGetDate";
 import { v4 } from "uuid";
 import { NotaContext } from "../context/NotaContext";
+import { useSnackbar } from "notistack";
 
 export const AddNotasPage = () => {
   const { notas, setnotas } = useContext(NotaContext);
 
   const date = useGetDate();
+
+  const {enqueueSnackbar} = useSnackbar()
+
+  const OpenSnack=(valor)=>{
+    enqueueSnackbar(`${valor} `, {
+      variant: "info",
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
+      },
+    });
+  }
 
   const [form, setform] = useState({
     title: "",
@@ -51,6 +64,7 @@ export const AddNotasPage = () => {
     notasv1.push(value_v1);
     setnotas(notasv1);
     navigate("/");
+    OpenSnack('Nota Agregada')
   };
 
   return (
