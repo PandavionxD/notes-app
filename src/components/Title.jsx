@@ -29,7 +29,6 @@ export const Title = () => {
   return (
     <>
       <Box display="flex" py={2}>
-        }
         {!search ? (
           <Typography
             flexGrow={1}
